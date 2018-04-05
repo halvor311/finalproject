@@ -1,0 +1,15 @@
+body {
+    max-width: 500px;
+    margin-top: -5;
+    background: url ("http://thechimeramagazine.com/wp-content/uploads/2018/03/got-bored.png");
+    padding: 10px;
+}
+Link{
+    color: white;
+}
+h1{
+    color: blueviolet;
+}
+label{
+    color: white
+}
