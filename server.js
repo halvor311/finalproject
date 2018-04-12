@@ -3,7 +3,8 @@ const mongoose = require("mongoose");
 const app = express();
 const PORT = process.env.PORT || 3001;
 const models = require("./models");
-
+const logger = require("morgan");
+const bodyParser = require("body-parser");
 const passport = require("passport");
 const session = require('express-session');
 
@@ -12,7 +13,7 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 // Serve up static assets
 app.use(express.static("client/build"));
-
+// For Morgan
  // For Passport
 app.use(session({ secret: 'changeThis',resave: true, saveUninitialized:true})); // session secret
 app.use(passport.initialize());
@@ -23,6 +24,14 @@ require('./config/passport.js')(passport,models.User);
 const routes = require("./routes")(passport);
 app.use('/',routes);
 
+// require all models
+var db = require("./models");
+// logging requests to make new things
+app.use(logger("dev"));
+// handling form submission
+app.use(bodyParser.urlencoded({ extended: false}));
+// express static serves the public folder as a static directory
+app.use(express.static("public"));
 
 // Set up promises with mongoose
 mongoose.Promise = global.Promise;

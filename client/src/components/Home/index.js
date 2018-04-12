@@ -39,13 +39,13 @@ class Home extends React.Component {
 		<div className='row'>
 			{/* <Nav /> */}
 			<div className='col' >
-				<h1 style ={{color: "white"}}>So what is it that you like to do!!</h1>
-				<label>Input a hobby!!!</label>
+				<h1 style ={{color: "white"}}>Let's End Boredom Together!!!</h1>
+				<label>Give me a hobby!!!</label>
 				<form onSubmit= {this.handleSubmit}>
 					<input type = "text"
 					value = {this.state.text}
 					onChange = {this.handleChange}/>
-					<button type = "Submit" value = "submit" className= "activities">Click here for some activities</button>
+					<button type = "Submit" value = "submit" className= "activities">Let's add it to our list</button>
 				</form>
 				{/* User clicks this button after typing an interest and a list of places that might do that appear */}
 			
